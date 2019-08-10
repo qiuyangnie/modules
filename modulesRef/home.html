@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- https://cs1.ucc.ie/~qn1/assign.3/home.html -->
+	<title>Personal UCC Module Description Browser</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+
+		header {
+		  background-color: #666;
+		  padding: 30px;
+		  text-align: center;
+		  font-size: 35px;
+		  color: white;
+		}		
+
+		nav {
+		  float: left;
+		  width: 30%;
+		  height: 670px; /* only for demonstration, should be removed */
+		  background: #ccc;
+		  padding: 20px;
+		  text-align: center;
+		}
+
+		article {
+		  float: left;
+		  padding: 20px;
+		  width: 70%;
+		  background-color: #f1f1f1;
+		  height: 670px; /* only for demonstration, should be removed */
+		}
+
+		/* Clear floats after the columns */
+		section:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		/* Style the footer */
+		footer {
+		  background-color: #777;
+		  padding: 10px;
+		  text-align: center;
+		  color: white;
+		}
+
+		/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+		@media (max-width: 600px) {
+		  nav, article {
+		    width: 100%;
+		    height: auto;
+		  }
+		}		
+
+	</style>
+
+</head>
+<body>
+
+
+	<header>
+	  	<h2>Personal UCC Module Description</h2>
+	</header>
+	
+	<section>
+	  	<nav>
+	  		<div id="classCodesColumn"></div>
+	  	</nav>
+	  	<article>
+	  		<div id="message"></div>
+	  		<div id="detailedView"></div>
+	  	</article>
+	</section>
+
+	<footer>
+	  	<p>CS6113</p>
+	</footer>
+
+
+
+
+
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+
+			$.getJSON("courses.json", function(data) {
+
+				// the message shows how many moudules the student taken 
+				const N = data.length;
+				$("#message").html(`<h4>I am currently taking <strong>${N}</strong> classes at UCC.</h4><br>`);
+
+				// buttons array storing the generating buttons below
+				let buttons = new Array();
+
+				for (i = 0; i < data.length; i++) {
+
+					// fetch needed JSON data 
+					const classCode = data[i].Code;
+					const classTitle = data[i].Title;
+					const classCreditWeighting = data[i].CreditWeighting;
+					const classContent = data[i].Content;
+					const classTotalMark = data[i].Assessment.CA + data[i].Assessment.Exam;
+					const classCA = data[i].Assessment.CA;
+					const classExam = data[i].Assessment.Exam;
+					const classLink = data[i].Link;
+
+					// create button
+					const classCodeButton = document.createElement("button");
+					classCodeButton.className = "btn btn-outline-dark btn-sm";  // style by applying Bootstrap
+					classCodeButton.style.width = "80px";
+					classCodeButton.style.margin = "5px";
+					classCodeButton.innerHTML = classCode;
+
+					buttons.push(classCodeButton);
+
+					$("#classCodesColumn").append(classCodeButton);
+
+
+					// button clicked event
+					classCodeButton.onclick = function() {
+
+						buttons.forEach(function(button) {
+							button.className = "btn btn-outline-dark btn-sm";
+						});
+
+						classCodeButton.className += " active";
+
+						$("#detailedView").html(`<strong>Module Title:</strong> ${classTitle} <br> <strong>Credit Weighting:</strong> ${classCreditWeighting} <br> <strong>Module Content:</strong>  ${classContent} <br> <strong>Total Marks:<strong> ${classTotalMark} <br> <strong>Continuous Assessment:</strong> ${classCA} <br> <strong>Formal Written Examination:</strong> ${classExam} <br> <strong>Link:</strong> <a href='${classLink}' target='_blank'>Read more</a>`);
+					}
+				}
+			});	
+		});
+	</script>
+
+
+
+
+
+</body>
+</html>

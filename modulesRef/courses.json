@@ -1,0 +1,109 @@
+[
+	{
+		"Code": "CS6113",
+		"Title": "Internet-based Applications",
+		"CreditWeighting": 5,
+		"Content": "Evaluation of different platforms and architectures for internet-based digital media applications including: layered architectures; service-oriented architectures, XML-based architectures and customisable environments. Implementation of internet-based digital media applications.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6113"
+	},
+
+	{
+		"Code": "CS6100",
+		"Title": "Multimedia Authoring",
+		"CreditWeighting": 5,
+		"Content": "Introduction to the principles of authoring for digital media environments using industry-standard authoring tools. Plan, develop, and evaluate digital media interactive applications.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6100"
+	},
+
+	{
+		"Code": "CS6101",
+		"Title": "Web Development for Digital Media",
+		"CreditWeighting": 5,
+		"Content": "Develop understanding of the client, server and infrastructure technologies used in online publishing of digital media. Application and evaluation of industry-standard tools for creation, management and delivery of online content.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6101"
+	},
+
+	{
+		"Code": "CS6103",
+		"Title": "Audio & Sound Engineering",
+		"CreditWeighting": 5,
+		"Content": "Introduction to the technologies and techniques used in digital audio. Physics of sound and the psycho-physiological basis of hearing. Sound engineering, production and post-production.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6103"
+	},
+
+	{
+		"Code": "CS6104",
+		"Title": "Digital Video Capture and Packaging",
+		"CreditWeighting": 5,
+		"Content": "Develop understanding of the planning, production and post-production of digital video. Application and evaluation of industry-standard tools in capturing, processing and packaging digital video.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6104"
+	},
+
+	{
+		"Code": "CS6105",
+		"Title": "Future and Emerging Interaction Technologies",
+		"CreditWeighting": 5,
+		"Content": "Design of Interaction Environments, Immersion in Virtual and Augmented Realities, Three Dimensional Geometry and Interactive Computer Graphics.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6105"
+	},
+
+	{
+		"Code": "CS6111",
+		"Title": "3D Graphics and Modelling",
+		"CreditWeighting": 5,
+		"Content": "Tools, techniques and processes involved in 3D graphics design, modelling and rendering. Create appropriate models of 3D objects and scenes. Solving problems in curve, surface and solid modeling.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6111"
+	},
+
+	{
+		"Code": "CS6113",
+		"Title": "Internet-based Applications",
+		"CreditWeighting": 5,
+		"Content": "Evaluation of different platforms and architectures for internet-based digital media applications including: layered architectures; service-oriented architectures, XML-based architectures and customisable environments. Implementation of internet-based digital media applications.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6113"
+	},
+
+	{
+		"Code": "CS6114",
+		"Title": "Digital Video Compression",
+		"CreditWeighting": 5,
+		"Content": "Develop understanding of the principles underlying the compression of video. Evaluation of state-of-the-art coding techniques, including compression algorithms and error resilience. Enhancement of the performance of existing systems for compression and delivery. Design of novel techniques and tools for compression and delivery.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6114"
+	},
+
+	{
+		"Code": "CS6115",
+		"Title": "Human Computer Interaction",
+		"CreditWeighting": 5,
+		"Content": "Human perception and human memory. User-centred design. Dynamic interaction and dialogue design. Help systems. Accessibility. Specification and modeling. Analysis, design and implementation of systems with proper regard to the human user.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6115"
+	},
+
+	{
+		"Code": "CS6117",
+		"Title": "Audio Processing",
+		"CreditWeighting": 5,
+		"Content": "Develop understanding of the principles underlying the compression of audio. Evaluation of state-of-the-art coding techniques, including compression algorithms, error resilience, sound synthesis and music synthesis. Enhancement of the performance of existing systems for compression and delivery. Design of novel techniques and tools for compression and delivery.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6117"
+	},
+
+	{
+		"Code": "CS6116",
+		"Title": "Mobile Multimedia",
+		"CreditWeighting": 5,
+		"Content": "Develop understanding of the novel digital media aspects of mobile, ubiquitous and pervasive computing systems. The tools and techniques for creating and delivering multimedia content on wirelessand 3G/4G networks. Acquire a range of skills for software development in mobile and ubiquitous computing using industry-standard tools.",
+		"Assessment": { "CA": 40, "Exam": 60},
+		"Link": "https://www.ucc.ie/admin/registrar/modules/?mod=cs6116"
+	}
+]
