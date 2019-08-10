@@ -1,0 +1,124 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CMS Prototype2</title>
+	<!--https://cs1.ucc.ie/~qn1/cms_2/cms_2.html-->
+	<!--Responsive design here could make the webiste looking resonable according to the viewing device, the further test is needed-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link id="cssLink" rel="stylesheet" type="text/css">
+	<!--Markdown parser CDN-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.js"></script>
+</head>
+
+<body>
+	<header>CMS
+		<select id="themeSelect" onchange="switch_css(value)">
+			<option value="default.css">Default</option>
+			<option value="dark.css">Dark</option>
+			<option value="light.css">Light</option>
+		</select>
+	</header>
+
+	<section>
+		<div id="leftDiv">
+			<nav>
+				<ul>
+					<li><button onclick="loadDoc('delay.php?loc=home.txt')">Hone</button></li>
+					<li><button onclick="loadDoc('delay.php?loc=personal.txt')">Personal</button></li>
+					<li><button onclick="loadDoc('delay.php?loc=student.txt')">Student</button></li>
+					<li><button onclick="loadDoc('delay.php?loc=loremd.txt')">404</button></li>
+					<li><button onclick="loadDoc('delay.php?loc=403.txt')">403</button></li>				
+				</ul>
+			</nav>
+
+			<div id="statusArea">
+				<div class="title">Status Message</div>
+				<div id="status"></div>
+				<div id="loadingMessage"></div>
+			</div>
+
+		</div>
+		<article id="content"></article>	
+	</section>
+
+	<footer>CS6113</footer>
+
+	<script type="text/javascript">
+
+		window.onload = function() {
+			loadDoc('home.txt');
+			/* 
+			When the user switched to other theme, the reload operation of the page is designed to remain the previous theme setting, which might improve the user experience. Firefox browser has been teseted to achieve this feature, Safari and Google Chrome, however, cannot achieve yet. 
+			*/
+			var themeSelect = document.getElementById("themeSelect");
+			var selectedTheme = themeSelect.options[themeSelect.selectedIndex].value;
+			load_css(selectedTheme);		
+		}
+
+		// Make sure the page is loaded with the current selected theme, there could be no need to write the css swithced message in the page initialisation.
+		function load_css(selectedTheme) {
+			var cssLink = document.getElementById("cssLink");
+			cssLink.setAttribute("href", selectedTheme);
+		}
+
+		function switch_css(cssFile) {
+			var cssLink = document.getElementById("cssLink");
+			cssLink.setAttribute("href", cssFile);
+			write_msg("Active CSS file switched to " + cssFile, 2);
+		}
+
+		var messageCount = 0;
+
+		function write_msg(txt, level) {
+			/* 
+			level - 1: content loaded, error (bold)
+			level - 2: css change (italic)
+			default: content is loading... (default)
+			*/
+			var statusMessage = document.getElementById("status");
+			var loadingMessage = document.getElementById("loadingMessage");
+			var cssFile = document.getElementById("cssLink").getAttribute("href");
+			switch (level) {
+				case 1: 
+					messageCount += 1;
+					loadingMessage.innerHTML = "";
+					statusMessage.innerHTML += "<b>" + messageCount + ". " + txt + "</b><br/>";
+					statusMessage.scrollTop = statusMessage.scrollHeight;
+					break;
+				case 2:
+					messageCount += 1;
+					loadingMessage.innerHTML = "";
+					statusMessage.innerHTML += "<i>" + messageCount + ". " + txt + "</i><br/>";
+					statusMessage.scrollTop = statusMessage.scrollHeight;
+					break;
+				default:
+					loadingMessage.innerHTML = txt;			
+			}
+		}
+
+		function loadDoc(url) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4) {
+					if (this.status == 200) {
+						// MarkDown Parser 
+						var parser = new showdown.Converter();
+						document.getElementById("content").innerHTML = parser.makeHtml(this.responseText);
+						write_msg("Content successfully loaded.", 1);
+					} else if (this.status == 404) {
+						write_msg("Error: 404 Not Found", 1);
+					} else if (this.status == 403) {
+						write_msg("Error: 403 permission denied", 1);
+					}
+				} else {
+					write_msg("Loading, please wait...");
+				}
+			};
+			xhttp.open("GET", url, true);
+			xhttp.send();
+		}
+
+	</script>
+
+</body>
+</html>
